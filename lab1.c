@@ -15,7 +15,11 @@ char* readString(char* fileName) {
 
         return NULL;
     }
-
+    
+    //fseek(file, 0, SEEK_END);
+    //int filesize = ftell(file);
+    //fseek(file, 0, SEEK_SET);
+    
     char* line = malloc(MAX_LINE_LEN);
     if (line == NULL) {
         printf("Error allocating memory for line");
@@ -35,7 +39,8 @@ char* readString(char* fileName) {
 }
 
 char* mysteryExplode(const char* str){
-    char* result = malloc(strlen(str) + 1);
+    int n = strlen(str);
+    char* result = malloc(n * (n + 1) / 2);
     if (result == NULL) {
         printf("Error allocating memory for result");
 
@@ -45,7 +50,7 @@ char* mysteryExplode(const char* str){
     int resultIndex = 0;
     
 
-    for(int i = 0; i < strlen(str); i++){
+    for(int i = 0; i < strlen(str) - 1; i++){
         for(int j = 0; j <= i; j++){
             result[resultIndex++] = str[j];
         }
