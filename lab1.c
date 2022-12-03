@@ -16,10 +16,6 @@ char* readString(char* fileName) {
         return NULL;
     }
     
-    //fseek(file, 0, SEEK_END);
-    //int filesize = ftell(file);
-    //fseek(file, 0, SEEK_SET);
-    
     char* line = malloc(MAX_LINE_LEN);
     if (line == NULL) {
         printf("Error allocating memory for line");
