@@ -5,9 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <lab1.h>
 #define MAX_LINE_LEN 100
-//char* fileName = "test1.txt"
 char* readString(char* fileName) {
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
@@ -28,6 +26,10 @@ char* readString(char* fileName) {
 
         return NULL;
     }
+    else 
+    {
+        line[strcspn(line, "\n")] = '\0';
+    }
 
     fclose(file);
 
@@ -46,7 +48,7 @@ char* mysteryExplode(const char* str){
     int resultIndex = 0;
     
 
-    for(int i = 0; i < strlen(str) - 1; i++){
+    for(int i = 0; i < strlen(str); i++){
         for(int j = 0; j <= i; j++){
             result[resultIndex++] = str[j];
         }
